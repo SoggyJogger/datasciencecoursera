@@ -27,6 +27,10 @@ These data are related to the data in the subfolders as follows (same for each o
 ### Code description
 The "run_analysis.R" script performs the following tasks:
 
+Load libraries for curl, plyr, and dplyr
+NOTE: if you do not have these packages installed already, you can 
+      install these packages by removing the comments on lines 19-21.
+
 Part 1:
 - Reads in and merges the data from the files in the test/train folders.
 - Label the variables with their features names.
@@ -35,7 +39,7 @@ Part 1:
 Part 2:
 - Reduces the dataset to only the columns that contain mean or standard deviation measurements.
   NOTE: this includes only the columns for "Mean values", not the columns for "mean frequency";
-        to include the latter, you can remove the '\\()' portion of the the grepl call (line 90).
+        to include the latter, you can remove the '\\()' portion of the the grepl call (line 96).
 
 Part 3: 
 - Labels the data with activity names (instead of numeric codes).

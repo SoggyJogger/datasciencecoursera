@@ -15,6 +15,14 @@
 ##############################
 # To run this code, set your desired working directory below
 
+### run these lines if you do not have these packages already installed:
+#install.packages("curl")
+#install.packages("plyr")
+#install.packages("dplyr")
+library(curl)
+library(plyr)
+library(dplyr)
+
 ### Set working directory
 file_location_first <- "C:/Users/Jon/Desktop/temp/course3week4/"
 setwd(file_location)
@@ -25,8 +33,6 @@ setwd(file_location)
 ## Merges the training and the test sets to create one data set.
 
 # download and read in the data
-#install.packages("curl")
-library(curl)
 dataURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(dataURL, 
               destfile = paste0(file_location, "projectData.zip"),
@@ -122,4 +128,4 @@ for(counter in c(1:6)){
 data_summary <- group_by_at(data_reduced, vars(activity_code, participantID)) %>% summarize_all(funs(mean))
 
 ## export data to a .csv
-write.table(data_summary, paste0(paste0(file_location_first, "Overall_means.txt")))
+write.table(data_summary, paste0(paste0(file_location_first, "Overall_means.txt")), row.names=FALSE)
