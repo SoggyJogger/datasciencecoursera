@@ -16,7 +16,7 @@
 # To run this code, set your desired working directory below
 
 ### Set working directory
-file_location <- "C:/Users/Jon/Desktop/temp/course3week4/"
+file_location_first <- "C:/Users/Jon/Desktop/temp/course3week4/"
 setwd(file_location)
 
 
@@ -37,7 +37,7 @@ dateDownloaded <- date()
 zipFile <- paste0(file_location, "projectData.zip")
 unzip(zipFile)
 ## files are located in a single folder, sets this as the new path prefix
-file_location <- paste0(file_location, "UCI HAR Dataset/")
+file_location <- paste0(file_location_first, "UCI HAR Dataset/")
 
 
 ## read in the data
@@ -122,4 +122,4 @@ for(counter in c(1:6)){
 data_summary <- group_by_at(data_reduced, vars(activity_code, participantID)) %>% summarize_all(funs(mean))
 
 ## export data to a .csv
-write.table(data_summary, paste0(paste0(file_location, "Overall_means.txt")))
+write.table(data_summary, paste0(paste0(file_location_first, "Overall_means.txt")))
